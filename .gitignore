@@ -1,0 +1,6 @@
+buid/
+bin/
+.vscode/
+obj/
+docs/
+*.sln

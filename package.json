@@ -1,0 +1,7 @@
+{
+    "name": "calculator",
+    "scripts": {
+        "build": "dotnet build ./Project.Lib",
+        "test": "dotnet test ./Project.Test"
+    }
+}
