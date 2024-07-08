@@ -9,14 +9,20 @@ class OperationFactoryTests
     public void VerifyThan_CreateUnaryOperation_ReturnsTheCorrectEnumTypeTest()
     {
         // Define input and output
-        BinaryOperationType operationType = BinaryOperationType.Add;
+        Mock<BinaryOperationType> operationType = new Mock<BinaryOperationType>();
         Mock<IOperation> firstValue = new Mock<IOperation>();
         Mock<IOperation> secondValue = new Mock<IOperation>();
 
         IOperationFactory factory = new OperationFactory();
 
+        operationType.Setup(x => x.Provenance).Returns(1);
+
         // Execute actual operation
-        IOperation actual = factory.Create(operationType, firstValue.Object, secondValue.Object);
+        IOperation actual = factory.Create(
+            operationType.Object,
+            firstValue.Object,
+            secondValue.Object
+        );
 
         // Verify actual result
         Assert.That(actual, Is.InstanceOf<Add>());
@@ -25,15 +31,17 @@ class OperationFactoryTests
     public void VerifyThan_CreateBinaryOperation_ReturnsTheCorrectEnumTypeTest()
     {
         // Define input and output
-        UnaryOperationType operationType = UnaryOperationType.SquareRoot;
+        Mock<UnaryOperationType> operationType = new Mock<UnaryOperationType>();
         Mock<IOperation> value = new Mock<IOperation>();
 
         IOperationFactory factory = new OperationFactory();
 
+        operationType.Setup(x => x.Provenance).Returns(5);
+
         // Execute actual operation
-        IOperation actual = factory.Create(operationType, value.Object);
+        IOperation actual = factory.Create(operationType.Object, value.Object);
 
         // Verify actual result
-        Assert.That(actual, Is.InstanceOf<SquareRoot>());
+        Assert.That(actual, Is.InstanceOf<Square>());
     }
 }

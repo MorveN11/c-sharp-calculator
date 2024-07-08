@@ -13,22 +13,22 @@ public class OperationFactory : IOperationFactory
         IOperation secondValue
     )
     {
-        return operationType switch
+        return operationType.Provenance switch
         {
-            BinaryOperationType.Add => new Add(firstValue, secondValue),
-            BinaryOperationType.Subtract => new Subtract(firstValue, secondValue),
-            BinaryOperationType.Multiply => new Multiply(firstValue, secondValue),
-            BinaryOperationType.Divide => new Divide(firstValue, secondValue),
+            1 => new Add(firstValue, secondValue),
+            2 => new Subtract(firstValue, secondValue),
+            3 => new Multiply(firstValue, secondValue),
+            4 => new Divide(firstValue, secondValue),
             _ => throw new InvalidOperationException("Invalid operation type."),
         };
     }
 
     public UnaryOperation Create(UnaryOperationType operationType, IOperation value)
     {
-        return operationType switch
+        return operationType.Provenance switch
         {
-            UnaryOperationType.Square => new Square(value),
-            UnaryOperationType.SquareRoot => new SquareRoot(value),
+            5 => new Square(value),
+            6 => new SquareRoot(value),
             _ => throw new InvalidOperationException("Invalid operation type."),
         };
     }
