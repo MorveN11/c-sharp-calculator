@@ -11,7 +11,7 @@ class SubtractTests
         Mock<IOperation> secondValue = new Mock<IOperation>();
         double expected = 10;
 
-        IOperation value = new Subtract(firstValue.Object, secondValue.Object);
+        BinaryOperation value = new Subtract(firstValue.Object, secondValue.Object);
 
         firstValue.Setup(x => x.Execute()).Returns(100);
         secondValue.Setup(x => x.Execute()).Returns(90);

@@ -1,16 +1,12 @@
 namespace Project.Operations;
 
-public class SquareRoot : IOperation
+public class SquareRoot : UnaryOperation
 {
-    private readonly IOperation _operation;
+    public SquareRoot(IOperation value)
+        : base(value) { }
 
-    public SquareRoot(IOperation operation)
+    public override double Execute()
     {
-        _operation = operation;
-    }
-
-    public double Execute()
-    {
-        return Math.Sqrt(_operation.Execute());
+        return Math.Sqrt(Value.Execute());
     }
 }

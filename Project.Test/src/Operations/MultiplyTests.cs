@@ -11,7 +11,7 @@ class MultiplyTests
         Mock<IOperation> secondValue = new Mock<IOperation>();
         double expected = 100;
 
-        IOperation value = new Multiply(firstValue.Object, secondValue.Object);
+        BinaryOperation value = new Multiply(firstValue.Object, secondValue.Object);
 
         firstValue.Setup(x => x.Execute()).Returns(4);
         secondValue.Setup(x => x.Execute()).Returns(25);

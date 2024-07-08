@@ -1,18 +1,12 @@
 namespace Project.Operations;
 
-public class Add : IOperation
+public class Add : BinaryOperation
 {
-    private readonly IOperation _left;
-    private readonly IOperation _right;
+    public Add(IOperation firstValue, IOperation secondValue)
+        : base(firstValue, secondValue) { }
 
-    public Add(IOperation left, IOperation right)
+    public override double Execute()
     {
-        _left = left;
-        _right = right;
-    }
-
-    public double Execute()
-    {
-        return _left.Execute() + _right.Execute();
+        return FirstValue.Execute() + SecondValue.Execute();
     }
 }

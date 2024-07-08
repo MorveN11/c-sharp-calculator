@@ -11,7 +11,7 @@ class DivideTests
         Mock<IOperation> secondValue = new Mock<IOperation>();
         double expected = 5;
 
-        IOperation value = new Divide(firstValue.Object, secondValue.Object);
+        BinaryOperation value = new Divide(firstValue.Object, secondValue.Object);
 
         firstValue.Setup(x => x.Execute()).Returns(25);
         secondValue.Setup(x => x.Execute()).Returns(5);

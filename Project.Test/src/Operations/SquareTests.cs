@@ -1,18 +1,18 @@
 namespace Project.Operations;
 
 [TestFixture]
-class SquareRootTests
+class SquareTests
 {
     [Test]
-    public void VerifyThan_OneOperation_ReturnsCorrectSquareRootTest()
+    public void VerifyThan_OneOperation_ReturnsCorrectSquareTest()
     {
         // Define input and output
         Mock<IOperation> value = new Mock<IOperation>();
-        double expected = 5;
+        double expected = 25;
 
-        UnaryOperation squareRoot = new SquareRoot(value.Object);
+        UnaryOperation squareRoot = new Square(value.Object);
 
-        value.Setup(x => x.Execute()).Returns(25);
+        value.Setup(x => x.Execute()).Returns(5);
 
         // Execute actual operation
         double actual = squareRoot.Execute();
