@@ -4,6 +4,6 @@ using Project.Operations;
 
 public interface INode
 {
-    IOperation Operation { get; }
+    IOperation? Operation { get; }
     int Parent { get; }
 }

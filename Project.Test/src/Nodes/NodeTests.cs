@@ -6,7 +6,7 @@ using Project.Operations;
 class NodeTests
 {
     [Test]
-    public void Verify_()
+    public void VerifyThan_OperationWIthParent_CreateCorrectlyANodeTest()
     {
         // Define input and output
         Mock<IOperation> operationMock = new Mock<IOperation>();
@@ -17,7 +17,7 @@ class NodeTests
         Node node = new Node(operationMock.Object, parent);
 
         // Execute actual operation
-        IOperation actualOperation = node.Operation;
+        IOperation actualOperation = node.Operation!;
         int actualParent = node.Parent;
 
         // Verify actual result
