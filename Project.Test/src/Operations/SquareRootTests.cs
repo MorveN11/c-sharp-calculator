@@ -1,7 +1,7 @@
 namespace Project.Operations;
 
 [TestFixture]
-class SquareRootTests
+sealed class SquareRootTests
 {
     [Test]
     public void VerifyThan_OneOperation_ReturnsCorrectSquareRootTest()

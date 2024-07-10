@@ -5,7 +5,7 @@ using Project.Models;
 using Project.Operators;
 
 [TestFixture]
-class OperatorFactoryTests
+sealed class OperatorFactoryTests
 {
     [Test]
     public void VerifyThan_SumOperator_ReturnsTheCorrectOperatorTest()
@@ -16,7 +16,7 @@ class OperatorFactoryTests
         string input = "+";
         IOperator expected = new BinaryOperator { Provenance = OperatorProvenance.Add };
 
-        IOperatorFactory operatorFactory = new OperatorFactory(
+        OperatorFactory operatorFactory = new OperatorFactory(
             binaryOperatorDirector.Object,
             unaryOperatorDirector.Object
         );

@@ -5,7 +5,14 @@
 
         <Nullable>enable</Nullable>
         <ImplicitUsings>enable</ImplicitUsings>
+
         <IsPackable>false</IsPackable>
+        <IsTestProject>true</IsTestProject>
+
+        <OutputType>Exe</OutputType>
+        <EnableMSTestRunner>true</EnableMSTestRunner>
+
+        <TestingPlatformDotnetTestSupport>true</TestingPlatformDotnetTestSupport>
     </PropertyGroup>
 
     <ItemGroup>

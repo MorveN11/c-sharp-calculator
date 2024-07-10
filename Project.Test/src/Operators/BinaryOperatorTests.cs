@@ -1,7 +1,7 @@
 namespace Project.Operators;
 
 [TestFixture]
-class BinaryOperatorTests
+sealed class BinaryOperatorTests
 {
     [Test]
     public void VerifyThan_Constructor_Initializes_References()

@@ -1,7 +1,7 @@
 namespace Project.Operations;
 
 [TestFixture]
-class AddTests
+sealed class AddTests
 {
     [Test]
     public void VerifyThan_TwoOperations_ReturnsCorrectSumTest()

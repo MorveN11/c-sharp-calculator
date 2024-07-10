@@ -1,7 +1,7 @@
 namespace Project.Operations;
 
 [TestFixture]
-class OperandTests
+sealed class OperandTests
 {
     [Test]
     public void VerifyThan_InputValue_ReturnsTheSameValueTest()
@@ -10,7 +10,7 @@ class OperandTests
         double input = 4;
         double expected = 4;
 
-        IOperation value = new Operand(input);
+        Operand value = new Operand(input);
 
         // GetResult actual operation
         double actual = value.GetResult();

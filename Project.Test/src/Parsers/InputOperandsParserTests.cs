@@ -4,7 +4,7 @@ using Project.Nodes;
 using Project.Operations;
 
 [TestFixture]
-class InputOperandsParserTests
+sealed class InputOperandsParserTests
 {
     [Test]
     public void VerifyThan_ParseSimpleInput_ReturnsCorrectOperandsTest()
@@ -19,7 +19,7 @@ class InputOperandsParserTests
         ];
         string input = "10 + 20 - 30 + ~ 40";
 
-        IInputOperandsParser parser = new InputOperandsParser();
+        InputOperandsParser parser = new InputOperandsParser();
 
         // Execute actual operation
         IList<INode> actual = parser.Parse(input);

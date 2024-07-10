@@ -1,5 +1,6 @@
 namespace Project.Parsers;
 
+using System.Globalization;
 using System.Text.RegularExpressions;
 using Project.Nodes;
 using Project.Operations;
@@ -18,7 +19,10 @@ public class InputOperandsParser : IInputOperandsParser
         int count = 0;
         foreach (Match match in matches)
         {
-            INode node = new Node(new Operand(double.Parse(match.Value)), count++);
+            INode node = new Node(
+                new Operand(double.Parse(match.Value, CultureInfo.InvariantCulture)),
+                count++
+            );
             operands.Add(node);
         }
 

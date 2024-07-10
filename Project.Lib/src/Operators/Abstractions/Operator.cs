@@ -2,15 +2,15 @@ using Project.Models;
 
 namespace Project.Operators;
 
-public abstract class Operator : IOperator
+public abstract class MathOperator : IOperator
 {
     public OperatorProvenance Provenance { get; set; }
 
-    protected Operator() { }
+    protected MathOperator() { }
 
     public override bool Equals(object? obj)
     {
-        if (obj is Operator other)
+        if (obj is MathOperator other)
         {
             return Provenance == other.Provenance;
         }

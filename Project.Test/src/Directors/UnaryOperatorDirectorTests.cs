@@ -4,7 +4,7 @@ using Project.Models;
 using Project.Operators;
 
 [TestFixture]
-class UnaryOperatorDirectorTests
+sealed class UnaryOperatorDirectorTests
 {
     [Test]
     public void VerifyThat_ConstructSquareOperator_ConstructsTheCorrectOperatorTest()

@@ -3,7 +3,7 @@ namespace Project.Nodes;
 using Project.Operations;
 
 [TestFixture]
-class NodeTests
+sealed class NodeTests
 {
     [Test]
     public void Verify_()

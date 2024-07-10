@@ -1,7 +1,7 @@
 namespace Project.Operations;
 
 [TestFixture]
-class DivideTests
+sealed class DivideTests
 {
     [Test]
     public void VerifyThan_TwoOperations_ReturnCorrectDivideTest()

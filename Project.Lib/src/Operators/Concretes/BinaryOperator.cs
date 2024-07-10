@@ -1,6 +1,6 @@
 namespace Project.Operators;
 
-public class BinaryOperator : Operator, IBinaryOperator
+public class BinaryOperator : MathOperator, IBinaryOperator
 {
     public int FirstReference { get; set; }
     public int SecondReference { get; set; }

@@ -6,9 +6,9 @@ using Project.Operators;
 public abstract class OperatorBuilder<T> : IOperatorBuilder<T>
     where T : class, IOperator, new()
 {
-    protected T? Operator;
+    protected T? Operator { get; private set; }
 
-    public OperatorBuilder()
+    protected OperatorBuilder()
     {
         Reset();
     }

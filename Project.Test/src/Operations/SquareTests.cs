@@ -1,7 +1,7 @@
 namespace Project.Operations;
 
 [TestFixture]
-class SquareTests
+sealed class SquareTests
 {
     [Test]
     public void VerifyThan_OneOperation_ReturnsCorrectSquareTest()

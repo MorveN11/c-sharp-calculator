@@ -1,22 +1,12 @@
 namespace Project.Parsers;
 
-using Project.Directors;
 using Project.Factories;
+using Project.Models;
 using Project.Operators;
 
 [TestFixture]
-class InputOperatorsParserTests
+sealed class InputOperatorsParserTests
 {
-    private IBinaryOperatorDirector? _binaryOperatorDirector;
-    private IUnaryOperatorDirector? _unaryOperatorDirector;
-
-    [SetUp]
-    public void SetUp()
-    {
-        _binaryOperatorDirector = new BinaryOperatorDirector();
-        _unaryOperatorDirector = new UnaryOperatorDirector();
-    }
-
     [Test]
     public void VerifyThan_ParseSimpleInput_ReturnsCorrectOperatorsTest()
     {
@@ -26,23 +16,38 @@ class InputOperatorsParserTests
 
         IList<IOperator> expected =
         [
-            _binaryOperatorDirector!.ConstructAddOperator(0, 1),
-            _binaryOperatorDirector.ConstructSubtractOperator(1, 2),
-            _binaryOperatorDirector.ConstructAddOperator(2, 3),
-            _unaryOperatorDirector!.ConstructSquareRootOperator(3)
+            new BinaryOperator
+            {
+                FirstReference = 0,
+                SecondReference = 1,
+                Provenance = OperatorProvenance.Add
+            },
+            new BinaryOperator
+            {
+                FirstReference = 1,
+                SecondReference = 2,
+                Provenance = OperatorProvenance.Subtract
+            },
+            new BinaryOperator
+            {
+                FirstReference = 2,
+                SecondReference = 3,
+                Provenance = OperatorProvenance.Add
+            },
+            new UnaryOperator { Reference = 3, Provenance = OperatorProvenance.SquareRoot }
         ];
 
-        IInputOperatorsParser parser = new InputOperatorsParser(factory.Object);
+        InputOperatorsParser parser = new InputOperatorsParser(factory.Object);
 
         factory
             .Setup(x => x.Create("+"))
-            .Returns(() => _binaryOperatorDirector.ConstructAddOperator());
+            .Returns(() => new BinaryOperator { Provenance = OperatorProvenance.Add });
         factory
             .Setup(x => x.Create("-"))
-            .Returns(() => _binaryOperatorDirector.ConstructSubtractOperator());
+            .Returns(() => new BinaryOperator { Provenance = OperatorProvenance.Subtract });
         factory
             .Setup(x => x.Create("~"))
-            .Returns(() => _unaryOperatorDirector.ConstructSquareRootOperator());
+            .Returns(() => new UnaryOperator { Provenance = OperatorProvenance.SquareRoot });
 
         // Execute actual operation
         IList<IOperator> actual = parser.Parse(input);

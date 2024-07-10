@@ -4,6 +4,7 @@ using Project.Utils;
 
 public enum OperatorProvenance
 {
+    None = 0,
     Subtract = 1,
     Add = 2,
     Divide = 3,

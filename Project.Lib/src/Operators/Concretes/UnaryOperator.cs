@@ -1,6 +1,6 @@
 namespace Project.Operators;
 
-public class UnaryOperator : Operator, IUnaryOperator
+public class UnaryOperator : MathOperator, IUnaryOperator
 {
     public int Reference { get; set; }
 

@@ -5,7 +5,7 @@ using Project.Operations;
 using Project.Operators;
 
 [TestFixture]
-class OperationFactoryTests
+sealed class OperationFactoryTests
 {
     [Test]
     public void VerifyThan_CreateBinaryOperation_WithTwoOperationsAndBinaryOperator_ReturnsTheCorrectOperationTest()
@@ -15,7 +15,7 @@ class OperationFactoryTests
         Mock<IOperation> firstValue = new Mock<IOperation>();
         Mock<IOperation> secondValue = new Mock<IOperation>();
 
-        IOperationFactory factory = new OperationFactory();
+        OperationFactory factory = new OperationFactory();
 
         operationType.Setup(x => x.Provenance).Returns(OperatorProvenance.Add);
 
@@ -37,7 +37,7 @@ class OperationFactoryTests
         Mock<IUnaryOperator> operationType = new Mock<IUnaryOperator>();
         Mock<IOperation> value = new Mock<IOperation>();
 
-        IOperationFactory factory = new OperationFactory();
+        OperationFactory factory = new OperationFactory();
 
         operationType.Setup(x => x.Provenance).Returns(OperatorProvenance.Square);
 

@@ -3,7 +3,7 @@ namespace Project.Builders;
 using Project.Operators;
 
 [TestFixture]
-class UnaryOperatorBuilderTests
+sealed class UnaryOperatorBuilderTests
 {
     [Test]
     public void VerifyThat_SetReference_SetsTheReferenceTest()

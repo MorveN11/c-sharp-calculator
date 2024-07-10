@@ -3,14 +3,14 @@ namespace Project.Directors;
 using Project.Builders;
 using Project.Operators;
 
-public class OperatorDirector<T, U> : IOperatorDirector<T, U>
-    where T : class, IOperatorBuilder<U>, new()
-    where U : class, IOperator, new()
+public class OperatorDirector<TOB, TO> : IOperatorDirector<TOB, TO>
+    where TOB : class, IOperatorBuilder<TO>, new()
+    where TO : class, IOperator, new()
 {
-    public T Builder { get; set; }
+    public TOB Builder { get; set; }
 
     public OperatorDirector()
     {
-        Builder = new T();
+        Builder = new TOB();
     }
 }

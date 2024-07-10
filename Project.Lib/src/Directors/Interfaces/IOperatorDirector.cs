@@ -3,9 +3,9 @@ namespace Project.Directors;
 using Project.Builders;
 using Project.Operators;
 
-public interface IOperatorDirector<T, U>
-    where T : class, IOperatorBuilder<U>, new()
-    where U : class, IOperator, new()
+public interface IOperatorDirector<TOB, TO>
+    where TOB : class, IOperatorBuilder<TO>, new()
+    where TO : class, IOperator, new()
 {
-    public T Builder { get; set; }
+    public TOB Builder { get; set; }
 }

@@ -14,7 +14,7 @@ public class OperationFactory : IOperationFactory
         IOperation secondValue
     )
     {
-        return operationType.Provenance switch
+        return operationType?.Provenance switch
         {
             OperatorProvenance.Subtract => new Subtract(firstValue, secondValue),
             OperatorProvenance.Add => new Add(firstValue, secondValue),
@@ -26,7 +26,7 @@ public class OperationFactory : IOperationFactory
 
     public IUnaryOperation Create(IUnaryOperator operationType, IOperation value)
     {
-        return operationType.Provenance switch
+        return operationType?.Provenance switch
         {
             OperatorProvenance.Square => new Square(value),
             OperatorProvenance.SquareRoot => new SquareRoot(value),
