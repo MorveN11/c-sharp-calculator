@@ -1,15 +1,15 @@
 namespace Project.Factories;
 
-using Project.Models;
 using Project.Operations;
+using Project.Operators;
 
 public interface IOperationFactory
 {
-    public BinaryOperation Create(
-        BinaryOperationType operationType,
+    public IBinaryOperation Create(
+        IBinaryOperator operationType,
         IOperation firstValue,
         IOperation secondValue
     );
 
-    public UnaryOperation Create(UnaryOperationType operationType, IOperation value);
+    public IUnaryOperation Create(IUnaryOperator operationType, IOperation value);
 }

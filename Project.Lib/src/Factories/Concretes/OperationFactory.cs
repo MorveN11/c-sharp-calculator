@@ -2,33 +2,34 @@ namespace Project.Factories;
 
 using Project.Models;
 using Project.Operations;
+using Project.Operators;
 
 public class OperationFactory : IOperationFactory
 {
     public OperationFactory() { }
 
-    public BinaryOperation Create(
-        BinaryOperationType operationType,
+    public IBinaryOperation Create(
+        IBinaryOperator operationType,
         IOperation firstValue,
         IOperation secondValue
     )
     {
         return operationType.Provenance switch
         {
-            1 => new Add(firstValue, secondValue),
-            2 => new Subtract(firstValue, secondValue),
-            3 => new Multiply(firstValue, secondValue),
-            4 => new Divide(firstValue, secondValue),
+            OperatorProvenance.Subtract => new Subtract(firstValue, secondValue),
+            OperatorProvenance.Add => new Add(firstValue, secondValue),
+            OperatorProvenance.Divide => new Divide(firstValue, secondValue),
+            OperatorProvenance.Multiply => new Multiply(firstValue, secondValue),
             _ => throw new InvalidOperationException("Invalid operation type."),
         };
     }
 
-    public UnaryOperation Create(UnaryOperationType operationType, IOperation value)
+    public IUnaryOperation Create(IUnaryOperator operationType, IOperation value)
     {
         return operationType.Provenance switch
         {
-            5 => new Square(value),
-            6 => new SquareRoot(value),
+            OperatorProvenance.Square => new Square(value),
+            OperatorProvenance.SquareRoot => new SquareRoot(value),
             _ => throw new InvalidOperationException("Invalid operation type."),
         };
     }

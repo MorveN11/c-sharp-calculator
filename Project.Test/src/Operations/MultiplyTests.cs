@@ -13,11 +13,11 @@ class MultiplyTests
 
         BinaryOperation value = new Multiply(firstValue.Object, secondValue.Object);
 
-        firstValue.Setup(x => x.Execute()).Returns(4);
-        secondValue.Setup(x => x.Execute()).Returns(25);
+        firstValue.Setup(x => x.GetResult()).Returns(4);
+        secondValue.Setup(x => x.GetResult()).Returns(25);
 
-        // Execute actual operation
-        double actual = value.Execute();
+        // GetResult actual operation
+        double actual = value.GetResult();
 
         // Verify actual result
         Assert.That(actual, Is.EqualTo(expected));

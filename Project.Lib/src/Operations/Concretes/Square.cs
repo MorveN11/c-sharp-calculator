@@ -5,8 +5,8 @@ public class Square : UnaryOperation
     public Square(IOperation value)
         : base(value) { }
 
-    public override double Execute()
+    protected override double Execute()
     {
-        return Value.Execute() * Value.Execute();
+        return Value.GetResult() * Value.GetResult();
     }
 }

@@ -5,8 +5,8 @@ public class SquareRoot : UnaryOperation
     public SquareRoot(IOperation value)
         : base(value) { }
 
-    public override double Execute()
+    protected override double Execute()
     {
-        return Math.Sqrt(Value.Execute());
+        return Math.Sqrt(Value.GetResult());
     }
 }

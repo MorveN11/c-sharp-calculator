@@ -13,11 +13,11 @@ class AddTests
 
         BinaryOperation value = new Add(firstValue.Object, secondValue.Object);
 
-        firstValue.Setup(x => x.Execute()).Returns(10);
-        secondValue.Setup(x => x.Execute()).Returns(20);
+        firstValue.Setup(x => x.GetResult()).Returns(10);
+        secondValue.Setup(x => x.GetResult()).Returns(20);
 
         // Execute actual operation
-        double actual = value.Execute();
+        double actual = value.GetResult();
 
         // Verify actual result
         Assert.That(actual, Is.EqualTo(expected));

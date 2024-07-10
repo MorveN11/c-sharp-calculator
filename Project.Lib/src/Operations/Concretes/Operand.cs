@@ -1,16 +1,16 @@
 namespace Project.Operations;
 
-public class Operand : IOperation
+public class Operand : Operation
 {
-    private readonly double _value;
+    public double Value { get; private set; }
 
     public Operand(double value)
     {
-        _value = value;
+        Value = value;
     }
 
-    public double Execute()
+    protected override double Execute()
     {
-        return _value;
+        return Value;
     }
 }

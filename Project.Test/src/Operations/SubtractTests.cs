@@ -13,11 +13,11 @@ class SubtractTests
 
         BinaryOperation value = new Subtract(firstValue.Object, secondValue.Object);
 
-        firstValue.Setup(x => x.Execute()).Returns(100);
-        secondValue.Setup(x => x.Execute()).Returns(90);
+        firstValue.Setup(x => x.GetResult()).Returns(100);
+        secondValue.Setup(x => x.GetResult()).Returns(90);
 
-        // Execute actual operation
-        double actual = value.Execute();
+        // GetResult actual operation
+        double actual = value.GetResult();
 
         // Verify actual result
         Assert.That(actual, Is.EqualTo(expected));

@@ -1,13 +1,11 @@
 namespace Project.Operations;
 
-public abstract class UnaryOperation : IOperation
+public abstract class UnaryOperation : Operation, IUnaryOperation
 {
-    protected IOperation Value { get; }
+    public IOperation Value { get; }
 
     protected UnaryOperation(IOperation value)
     {
         Value = value;
     }
-
-    public abstract double Execute();
 }

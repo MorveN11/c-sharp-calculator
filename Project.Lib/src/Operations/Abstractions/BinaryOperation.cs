@@ -1,15 +1,13 @@
 namespace Project.Operations;
 
-public abstract class BinaryOperation : IOperation
+public abstract class BinaryOperation : Operation, IBinaryOperation
 {
-    protected IOperation FirstValue { get; }
-    protected IOperation SecondValue { get; }
+    public IOperation FirstValue { get; }
+    public IOperation SecondValue { get; }
 
     protected BinaryOperation(IOperation firstValue, IOperation secondValue)
     {
         FirstValue = firstValue;
         SecondValue = secondValue;
     }
-
-    public abstract double Execute();
 }

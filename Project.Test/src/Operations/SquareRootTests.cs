@@ -12,10 +12,10 @@ class SquareRootTests
 
         UnaryOperation squareRoot = new SquareRoot(value.Object);
 
-        value.Setup(x => x.Execute()).Returns(25);
+        value.Setup(x => x.GetResult()).Returns(25);
 
-        // Execute actual operation
-        double actual = squareRoot.Execute();
+        // GetResult actual operation
+        double actual = squareRoot.GetResult();
 
         // Verify actual result
         Assert.That(actual, Is.EqualTo(expected));

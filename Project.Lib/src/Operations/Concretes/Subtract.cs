@@ -5,8 +5,8 @@ public class Subtract : BinaryOperation
     public Subtract(IOperation firstValue, IOperation secondValue)
         : base(firstValue, secondValue) { }
 
-    public override double Execute()
+    protected override double Execute()
     {
-        return FirstValue.Execute() - SecondValue.Execute();
+        return FirstValue.GetResult() - SecondValue.GetResult();
     }
 }

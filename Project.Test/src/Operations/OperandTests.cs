@@ -12,8 +12,8 @@ class OperandTests
 
         IOperation value = new Operand(input);
 
-        // Execute actual operation
-        double actual = value.Execute();
+        // GetResult actual operation
+        double actual = value.GetResult();
 
         // Verify actual result
         Assert.That(actual, Is.EqualTo(expected));

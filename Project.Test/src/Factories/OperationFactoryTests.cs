@@ -2,20 +2,22 @@ namespace Project.Factories;
 
 using Project.Models;
 using Project.Operations;
+using Project.Operators;
 
 [TestFixture]
 class OperationFactoryTests
 {
-    public void VerifyThan_CreateUnaryOperation_ReturnsTheCorrectEnumTypeTest()
+    [Test]
+    public void VerifyThan_CreateBinaryOperation_WithTwoOperationsAndBinaryOperator_ReturnsTheCorrectOperationTest()
     {
         // Define input and output
-        Mock<BinaryOperationType> operationType = new Mock<BinaryOperationType>();
+        Mock<IBinaryOperator> operationType = new Mock<IBinaryOperator>();
         Mock<IOperation> firstValue = new Mock<IOperation>();
         Mock<IOperation> secondValue = new Mock<IOperation>();
 
         IOperationFactory factory = new OperationFactory();
 
-        operationType.Setup(x => x.Provenance).Returns(1);
+        operationType.Setup(x => x.Provenance).Returns(OperatorProvenance.Add);
 
         // Execute actual operation
         IOperation actual = factory.Create(
@@ -28,15 +30,16 @@ class OperationFactoryTests
         Assert.That(actual, Is.InstanceOf<Add>());
     }
 
-    public void VerifyThan_CreateBinaryOperation_ReturnsTheCorrectEnumTypeTest()
+    [Test]
+    public void VerifyThan_CreateUnaryOperation_WithOneOperationAndUnaryOperator_ReturnsTheCorrectOperationTest()
     {
         // Define input and output
-        Mock<UnaryOperationType> operationType = new Mock<UnaryOperationType>();
+        Mock<IUnaryOperator> operationType = new Mock<IUnaryOperator>();
         Mock<IOperation> value = new Mock<IOperation>();
 
         IOperationFactory factory = new OperationFactory();
 
-        operationType.Setup(x => x.Provenance).Returns(5);
+        operationType.Setup(x => x.Provenance).Returns(OperatorProvenance.Square);
 
         // Execute actual operation
         IOperation actual = factory.Create(operationType.Object, value.Object);
