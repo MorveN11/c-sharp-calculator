@@ -5,7 +5,7 @@ using Project.Models;
 using Project.Operators;
 
 [TestFixture]
-sealed class InputOperatorsParserTests
+class InputOperatorsParserTests
 {
     [Test]
     public void VerifyThan_ParseSimpleInput_ReturnsCorrectOperatorsTest()

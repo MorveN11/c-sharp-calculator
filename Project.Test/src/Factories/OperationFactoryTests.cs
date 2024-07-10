@@ -5,7 +5,7 @@ using Project.Operations;
 using Project.Operators;
 
 [TestFixture]
-sealed class OperationFactoryTests
+class OperationFactoryTests
 {
     [Test]
     public void VerifyThan_CreateBinaryOperation_WithTwoOperationsAndBinaryOperator_ReturnsTheCorrectOperationTest()

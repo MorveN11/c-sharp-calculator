@@ -1,6 +1,6 @@
-using System.Text.RegularExpressions;
-
 namespace Project.Utils;
+
+using System.Text.RegularExpressions;
 
 public static partial class ProjectConstants
 {

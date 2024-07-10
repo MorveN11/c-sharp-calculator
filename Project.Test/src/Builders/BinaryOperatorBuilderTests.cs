@@ -3,7 +3,7 @@ namespace Project.Builders;
 using Project.Operators;
 
 [TestFixture]
-sealed class BinaryOperatorBuilderTests
+class BinaryOperatorBuilderTests
 {
     [Test]
     public void VerifyThat_SetFirstReference_SetsTheFirstReferenceTest()

@@ -4,7 +4,7 @@ using Project.Models;
 using Project.Operators;
 
 [TestFixture]
-sealed class BinaryOperatorDirectorTests
+class BinaryOperatorDirectorTests
 {
     [Test]
     public void VerifyThat_ConstructSubtractOperator_ConstructsSubtractOperatorTest()

@@ -5,7 +5,7 @@ using Project.Models;
 using Project.Operators;
 
 [TestFixture]
-sealed class OperatorFactoryTests
+class OperatorFactoryTests
 {
     [Test]
     public void VerifyThan_SumOperator_ReturnsTheCorrectOperatorTest()

@@ -4,7 +4,7 @@ using Project.Nodes;
 using Project.Operations;
 
 [TestFixture]
-sealed class InputOperandsParserTests
+class InputOperandsParserTests
 {
     [Test]
     public void VerifyThan_ParseSimpleInput_ReturnsCorrectOperandsTest()

@@ -1,7 +1,7 @@
 namespace Project.Operations;
 
 [TestFixture]
-sealed class MultiplyTests
+class MultiplyTests
 {
     [Test]
     public void VerifyThan_TwoOperations_ReturnsCorrectMultiplyTests()

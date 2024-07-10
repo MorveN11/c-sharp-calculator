@@ -1,7 +1,7 @@
 namespace Project.Operations;
 
 [TestFixture]
-sealed class OperandTests
+class OperandTests
 {
     [Test]
     public void VerifyThan_InputValue_ReturnsTheSameValueTest()

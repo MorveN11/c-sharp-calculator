@@ -1,6 +1,6 @@
-using Project.Models;
-
 namespace Project.Operators;
+
+using Project.Models;
 
 public abstract class MathOperator : IOperator
 {
